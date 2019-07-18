@@ -67,7 +67,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:9098/pacientes/listarxId/1",
+					"raw": "http://localhost:9098/pacientes/listarxId/10",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -76,7 +76,7 @@
 					"path": [
 						"pacientes",
 						"listarxId",
-						"1"
+						"10"
 					]
 				}
 			},
@@ -100,10 +100,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nombres\":\"Francis\",\n\t\"apellidos\":\"Velazco\",\n\t\"dni\":\"12346578\",\n\t\"direccion\":\"Lima\",\n\t\"telefono\":\"132456789\",\n\t\"email\":\"fvelazco@qg.com\"\n}"
+					"raw": "{\n\t\"nombres\":\"Estebas\",\n\t\"apellidos\":\"Valencia\",\n\t\"dni\":\"12346578\",\n\t\"direccion\":\"Lima 1234455\",\n\t\"telefono\":\"132456789\",\n\t\"email\":\"evalencia@qg.com\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:9098/pacientes/registrar",
+					"raw": "http://localhost:9098/pacientes/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -111,7 +111,7 @@
 					"port": "9098",
 					"path": [
 						"pacientes",
-						"registrar"
+						""
 					]
 				}
 			},
