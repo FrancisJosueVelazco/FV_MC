@@ -15,11 +15,17 @@ public class Medico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idMedico;
 	
+	
+	
 	@Column(name = "nombres",length = 70,nullable = false)
 	private String nombres;
 	
+	
+	
 	@Column(name = "apellidos",length = 70,nullable = false)
 	private String apellidos;
+	
+	
 	
 	@Column(name = "CMP",length = 12,nullable = false)
 	private String CMP;

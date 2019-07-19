@@ -3,6 +3,9 @@ package com.fvelazco.controller;
 import java.awt.PageAttributes.MediaType;
 import java.net.URI;
 import java.util.List;
+
+import javax.validation.Valid;
+
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
@@ -66,8 +69,8 @@ public class PacienteController {
 		return resource;
 	}
 
-	@PostMapping(value = "/registrar", produces = "aplication/json", consumes = "application/json ")
-	public ResponseEntity<Object> registrar(@RequestBody Paciente t) {
+	@PostMapping(value = "/registrar", produces = "application/json", consumes = "application/json ")
+	public ResponseEntity<Object> registrar(@Valid @RequestBody Paciente t) {
 		Paciente paciente = new Paciente();
 		paciente = service.registrar(t);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")

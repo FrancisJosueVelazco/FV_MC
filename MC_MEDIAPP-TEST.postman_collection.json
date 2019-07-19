@@ -67,7 +67,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:9098/pacientes/listarxId/10",
+					"raw": "http://localhost:9098/pacientes/listarxId/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -76,7 +76,7 @@
 					"path": [
 						"pacientes",
 						"listarxId",
-						"10"
+						"2"
 					]
 				}
 			},
@@ -100,10 +100,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nombres\":\"Estebas\",\n\t\"apellidos\":\"Valencia\",\n\t\"dni\":\"12346578\",\n\t\"direccion\":\"Lima 1234455\",\n\t\"telefono\":\"132456789\",\n\t\"email\":\"evalencia@qg.com\"\n}"
+					"raw": "{\n\t\"nombres\":\"a\",\n\t\"apellidos\":\"Valencia\",\n\t\"dni\":\"12346578\",\n\t\"direccion\":\"Lima 1234455\",\n\t\"telefono\":\"132456789\",\n\t\"email\":\"evalencia@qg.com\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:9098/pacientes/",
+					"raw": "http://localhost:9098/pacientes/registrar",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -111,7 +111,7 @@
 					"port": "9098",
 					"path": [
 						"pacientes",
-						""
+						"registrar"
 					]
 				}
 			},
@@ -179,6 +179,42 @@
 						"pacientes",
 						"eliminar",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9098/consultas/registrar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"paciente\":{\n\t\t\"idPaciente\":2\n\t},\n\t\"medico\":{\n\t\t\"idMedico\":1\n\t},\n\t\"especialidad\":{\n\t\t\"idEspecialidad\":1\n\t},\n\t\"fecha\":\"2019-07-19T11:15:50.0000\",\n\t\"detalleConsulta\":[\n\t\t{\n\t\t\t\"diagnostico\":\"FIEBRE\",\"tratamiento\":\"PARACETAMOS\"\n\t\t\t\n\t\t},\n\t\t{\t\n\t\t\t\"diagnostico\":\"AMIGNALITIS\",\"tratamiento\":\"ANTIBIOTICOS\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9098/consultas/registrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"consultas",
+						"registrar"
 					]
 				}
 			},

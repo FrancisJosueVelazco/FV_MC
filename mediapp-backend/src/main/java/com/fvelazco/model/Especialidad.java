@@ -15,9 +15,13 @@ public class Especialidad {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idEspecialidad;
 	
+	
+	
 	@Column(name = "nombre",nullable = false,length = 50)
 	private String nombre;
 
+	
+	
 	
 	public Integer getIdEspecialidad() {
 		return idEspecialidad;
