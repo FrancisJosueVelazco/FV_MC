@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.fvelazco.model.Consulta;
+import com.fvelazco.model.ConsultaListaExamenDTO;
 import com.fvelazco.service.ConsultaService;
 
 @RestController
@@ -22,9 +23,9 @@ public class ConsultaController {
 	
 	
 	@PostMapping(value = "/registrar", produces = "application/json", consumes = "application/json ")
-	public ResponseEntity<Object> registrar(@RequestBody Consulta con) {
+	public ResponseEntity<Object> registrar(@RequestBody ConsultaListaExamenDTO consDTO) {
 		Consulta consulta = new Consulta();
-		consulta= service.registrar(con);
+		consulta= service.registrarTransaccional(consDTO);
 		
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(consulta.getIdConsulta()).toUri();

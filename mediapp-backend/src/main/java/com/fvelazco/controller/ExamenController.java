@@ -21,7 +21,7 @@ public class ExamenController {
 	@Autowired
 	private ExamenService service;
 	
-	@PostMapping(consumes = "application/json",produces = "application/json")
+	@PostMapping(consumes = "application/json",produces = "application/json",value = "/registrar")
 	public Examen registrar(@RequestBody Examen examen) {
 		return service.registrar(examen);
 	}
@@ -31,7 +31,7 @@ public class ExamenController {
 		return service.listar();
 	}
 	
-	@GetMapping(consumes = "application/json",produces = "application/json")
+	@GetMapping(consumes = "application/json",produces = "application/json", value = "/listarxId/{id}")
 	public Examen listarxId(@PathVariable("id")Integer id) {
 		return service.listarxId(id);
 	}
