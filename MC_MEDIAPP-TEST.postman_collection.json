@@ -219,6 +219,68 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:9098/consultas/registrarTransaccional",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"consulta\": {\n        \"paciente\": {\n            \"idPaciente\": 2\n        },\n        \"medico\": {\n            \"idMedico\": 1\n        },\n        \"especialidad\": {\n            \"idEspecialidad\": 1\n        },\n        \"fecha\": \"2019-07-19T11:15:50.0000\",\n        \"detalleConsulta\": [\n            {\n                \"diagnostico\": \"FIEBRE\",\n                \"tratamiento\": \"PARACETAMOS\"\n            },\n            {\n                \"diagnostico\": \"AMIGNALITIS\",\n                \"tratamiento\": \"ANTIBIOTICOS\"\n            }\n        ]\n    },\n    \"lstExamen\": [\n        {\n            \"idExamen\": 1\n        },\n        {\n            \"idExamen\": 2\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9098/consultas/registrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"consultas",
+						"registrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9098/examenes/registrar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descripcion\":\"SIN CONTRASTE\",\n\t\"nombre\":\"SANGRE\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9098/examenes/registrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"examenes",
+						"registrar"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
