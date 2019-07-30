@@ -5,38 +5,38 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fvelazco.dao.IPacienteDAO;
-import com.fvelazco.model.Paciente;
-import com.fvelazco.service.PacienteService;
-
+import com.fvelazco.dao.IMedicoDAO;
+import com.fvelazco.model.Medico;
+import com.fvelazco.service.MedicoService;
 @Service
-public class PacienteServiceImpl implements PacienteService{
-	
-	@Autowired
-	private IPacienteDAO dao;
+public class MedicoServiceImpl implements MedicoService{
 
+	@Autowired
+	private IMedicoDAO dao; ;
+	
 	@Override
-	public Paciente registrar(Paciente t) {
+	public Medico registrar(Medico t) {
 		return dao.save(t);
 	}
 
 	@Override
-	public Paciente modificar(Paciente t) {
+	public Medico modificar(Medico t) {
 		return dao.save(t);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		dao.delete(id);
+		
 	}
 
 	@Override
-	public List<Paciente> listar() {
+	public List<Medico> listar() {
 		return dao.findAll();
 	}
 
 	@Override
-	public Paciente listarxId(Integer id) {
+	public Medico listarxId(Integer id) {
 		return dao.findOne(id);
 	}
 

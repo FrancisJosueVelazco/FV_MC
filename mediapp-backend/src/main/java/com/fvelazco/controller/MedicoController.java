@@ -3,8 +3,6 @@ package com.fvelazco.controller;
 import java.net.URI;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
@@ -24,61 +22,72 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.fvelazco.exception.ModeloNotFoundException;
-import com.fvelazco.model.Examen;
-import com.fvelazco.service.ExamenService;
+import com.fvelazco.model.Medico;
+import com.fvelazco.service.MedicoService;
 
 @RestController
-@RequestMapping("/examenes")
-public class ExamenController {
+@RequestMapping(value = "medicos")
+public class MedicoController {
 
 	@Autowired
-	private ExamenService service;
+	private MedicoService service;
 
+	
+	
+	
 	@GetMapping(value = "/listar", produces = "application/json")
-	public ResponseEntity<List<Examen>> listar() {
-		return new ResponseEntity<List<Examen>>(service.listar(), HttpStatus.OK);
+	public ResponseEntity<List<Medico>> listar() {
+		return new ResponseEntity<List<Medico>>(service.listar(), HttpStatus.OK);
 	}
 
-	@GetMapping(consumes = "application/json", produces = "application/json", value = "/listarxId/{id}")
-	public Resource<Examen> listarxId(@PathVariable("id") Integer id) {
-
-		Examen e = service.listarxId(id);
-		if (e == null) {
+	
+	
+	
+	@GetMapping(value = "/{id}", produces = "application/json")
+	public Resource<Medico> listarxId(@PathVariable("id") Integer id) {
+		Medico m = service.listarxId(id);
+		if (m == null) {
 			throw new ModeloNotFoundException("ID NO ENCONTRADO: " + id);
 		}
-		
-		//HATEOAS --> HYPEMEDIA
-		Resource<Examen> resource = new Resource<Examen>(e);
+		Resource<Medico> resource = new Resource<Medico>(m);
+
 		ControllerLinkBuilder linkto = linkTo(methodOn(this.getClass()).listarxId(id));
-		resource.add(linkto.withRel("examen-resource"));
+		resource.add(linkto.withRel("medico-resource"));
+
 		return resource;
 	}
 
-	@PostMapping(consumes = "application/json", produces = "application/json", value = "/registrar")
-	public ResponseEntity<Object> registrar(@Valid @RequestBody Examen examen) {
-		Examen e = service.registrar(examen);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(e.getIdExamen())
-				.toUri();
-
+	
+	
+	
+	@PostMapping(value = "/registrar", consumes = "application/json", produces = "application/json")
+	public ResponseEntity<Object> registrar(@RequestBody Medico t) {
+		Medico m=service.registrar(t);
+		URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(m.getIdMedico()).toUri();
 		return ResponseEntity.created(location).build();
-
 	}
 
+	
+	
+	
 	@PutMapping(value = "/modificar", consumes = "application/json", produces = "application/json")
-	public ResponseEntity<Object> modificar(@RequestBody Examen e) {
-		service.modificar(e);
+	public ResponseEntity<Object> modificar(Medico t) {
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 
-	@DeleteMapping(value = "eliminar/{id}")
-	public void Eliminar(@PathVariable("id") Integer id) {
-		Examen e = service.listarxId(id);
-		if (e == null) {
+	
+	
+	
+	@DeleteMapping(value = "/eliminar/{id}", produces = "application/json", consumes = "application/json")
+	public void eliminar(@PathVariable("id") Integer id) {
+		Medico m = service.listarxId(id);
+
+		if (m == null) {
 			throw new ModeloNotFoundException("ID NO ENCONTRADO: " + id);
 		} else {
 			service.eliminar(id);
 		}
-
 	}
 
 }

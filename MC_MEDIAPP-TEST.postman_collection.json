@@ -44,6 +44,66 @@
 			"response": []
 		},
 		{
+			"name": "http://localhost:9098/examenes/listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9098/examenes/listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"examenes",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9098/medicos/listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9098/medicos/listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"medicos",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9098/consultas/listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9098/consultas/listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"consultas",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "http://localhost:9098/pacientes/listarxId/1",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -83,6 +143,33 @@
 			"response": []
 		},
 		{
+			"name": "http://localhost:9098/consultas/listarxHateoas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9098/consultas/listarxHateoas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"consultas",
+						"listarxHateoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "http://localhost:9098/pacientes/registrar",
 			"request": {
 				"method": "POST",
@@ -112,73 +199,6 @@
 					"path": [
 						"pacientes",
 						"registrar"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:9098/pacientes/modificar",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"idPaciente\": 3,\n    \"nombres\": \"1\",\n    \"apellidos\": \"Velazco\",\n    \"dni\": \"12346578\",\n    \"direccion\": \"Lima\",\n    \"telefono\": \"132456789\",\n    \"email\": \"ASDASDASDSA@gmail.com\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:9098/pacientes/modificar",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9098",
-					"path": [
-						"pacientes",
-						"modificar"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:9098/pacientes/eliminar/1",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:9098/pacientes/eliminar/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9098",
-					"path": [
-						"pacientes",
-						"eliminar",
-						"1"
 					]
 				}
 			},
@@ -277,6 +297,73 @@
 					"path": [
 						"examenes",
 						"registrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9098/pacientes/modificar",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idPaciente\": 3,\n    \"nombres\": \"1\",\n    \"apellidos\": \"Velazco\",\n    \"dni\": \"12346578\",\n    \"direccion\": \"Lima\",\n    \"telefono\": \"132456789\",\n    \"email\": \"ASDASDASDSA@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9098/pacientes/modificar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"pacientes",
+						"modificar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9098/pacientes/eliminar/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9098/pacientes/eliminar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"pacientes",
+						"eliminar",
+						"1"
 					]
 				}
 			},

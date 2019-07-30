@@ -1,6 +1,5 @@
 package com.fvelazco.controller;
 
-import java.awt.PageAttributes.MediaType;
 import java.net.URI;
 import java.util.List;
 
@@ -35,25 +34,17 @@ public class PacienteController {
 	@Autowired
 	private PacienteService service;
 
-//	@GetMapping(value = "/listar")
-//	public List<Paciente> listar(){
-//		return service.listar();
-//	}
+	
+	// LISTAR----------------------------------------------------
+	// RESPUESTA STATUS
 	@GetMapping(value = "/listar", produces = "application/json")
 	public ResponseEntity<List<Paciente>> listar() {
 		return new ResponseEntity<List<Paciente>>(service.listar(), HttpStatus.OK);
 	}
 
-//	@GetMapping(value = "/listarxId/{id}")
-//	public Paciente listarxId(@PathVariable("id")  Integer id) {
-//		
-//		Paciente p=service.listarxId(id);
-//		if (p==null) {
-//			throw new ModeloNotFoundException("ID NO ENCONTRADO: "+id);
-//		}
-//		return p; 
-//	}
-
+	
+	// LISTAR POR ID----------------------------------------------------
+	//		Resoruce --> HATEOAS (HyperMedia)
 	@GetMapping(value = "/listarxId/{id}", produces = "application/json")
 	public Resource<Paciente> listarxId(@PathVariable("id") Integer id) {
 
@@ -69,6 +60,9 @@ public class PacienteController {
 		return resource;
 	}
 
+	
+	
+	// REGISTRAR----------------------------------------------------
 	@PostMapping(value = "/registrar", produces = "application/json", consumes = "application/json ")
 	public ResponseEntity<Object> registrar(@Valid @RequestBody Paciente t) {
 		Paciente paciente = new Paciente();
@@ -78,16 +72,16 @@ public class PacienteController {
 		return ResponseEntity.created(location).build();
 	}
 
-//	@PutMapping(value = "/modificar")
-//	public Paciente modificar(@RequestBody Paciente t) {
-//		return service.modificar(t);
-//	}
-//	
+	
+	
+	// MODIFICAR----------------------------------------------------
 	@PutMapping(value = "/modificar", produces = "application/json", consumes = "aplication/json ")
 	public ResponseEntity<Object> modificar(@RequestBody Paciente t) {
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 
+	
+	// ELIMINAR----------------------------------------------------
 	@DeleteMapping(value = "/eliminar/{id}")
 	public void eliminar(@PathVariable("id") Integer id) {
 		Paciente paciente = service.listarxId(id);

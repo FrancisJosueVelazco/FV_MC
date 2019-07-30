@@ -17,32 +17,32 @@ public class ConsultaExamenServiceImpl implements ConsultaExamenService{
 
 	@Override
 	public ConsultaExamen registrar(ConsultaExamen t) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dao.save(t);
 	}
 
 	@Override
 	public ConsultaExamen modificar(ConsultaExamen t) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dao.save(t);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
-		// TODO Auto-generated method stub
+		dao.delete(id);
 		
 	}
 
 	@Override
 	public List<ConsultaExamen> listar() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.findAll();
 	}
 
 	@Override
 	public ConsultaExamen listarxId(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.findOne(id);
 	}
 
 }

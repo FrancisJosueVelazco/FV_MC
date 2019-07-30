@@ -23,7 +23,6 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 @Entity
 public class Consulta {
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idConsulta;
